@@ -1,1 +1,4 @@
 *.pkl filter=lfs diff=lfs merge=lfs -text
+backend/app/ml/rf_model.pkl filter=lfs diff=lfs merge=lfs -text
+backend/app/ml/label_encoder.pkl filter=lfs diff=lfs merge=lfs -text
+backend/app/ml/mlb.pkl filter=lfs diff=lfs merge=lfs -text
