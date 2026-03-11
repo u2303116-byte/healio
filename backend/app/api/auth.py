@@ -53,7 +53,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
         user_id=new_user.id,
         name=new_user.name,
         token=token,
-        user=UserResponse.model_validate(new_user),
+        user=UserResponse.from_orm(new_user),
     )
 
 
@@ -71,7 +71,7 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
         user_id=db_user.id,
         name=db_user.name,
         token=token,
-        user=UserResponse.model_validate(db_user),
+        user=UserResponse.from_orm(db_user),
     )
 
 
