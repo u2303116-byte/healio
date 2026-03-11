@@ -1,8 +1,8 @@
 import spacy
 from fastapi import APIRouter
 from pydantic import BaseModel
-from app.nlp.intent import detect_intent, normalize_message
-from app.ml.rfcdisease import predict_top3, valid_symptoms
+from app.nlp.intent import detect_intent, normalize_message, VALID_SYMPTOMS
+from app.ml.rfcdisease import predict_top3
 from app.ml.first_aid_handler import get_first_aid
 from app.ml.health_metrics import get_assessment_for_api
 
@@ -15,7 +15,7 @@ def extract_symptoms_from_text(message: str):
     doc = nlp(message)
     lemmas = [token.lemma_.lower() for token in doc if not token.is_punct]
     extracted = []
-    for symptom in valid_symptoms:
+    for symptom in VALID_SYMPTOMS:
         symptom_parts = symptom.split("_")
         if all(part in lemmas for part in symptom_parts):
             extracted.append(symptom)
