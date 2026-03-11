@@ -14,8 +14,7 @@ with open(os.path.join(MODEL_DIR, "label_encoder.pkl"), "rb") as f:
 with open(os.path.join(MODEL_DIR, "mlb.pkl"), "rb") as f:
     mlb = pickle.load(f)
 
-valid_symptoms = set(mlb.classes_)
-
+valid_symptoms = set(str(s) for s in mlb.classes_)
 
 def predict_top3(symptom_list):
 
