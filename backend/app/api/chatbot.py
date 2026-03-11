@@ -2,7 +2,7 @@ import spacy
 from fastapi import APIRouter
 from pydantic import BaseModel
 from app.nlp.intent import detect_intent, normalize_message
-from app.ml.rfcdisease import predict_top3, vaild_symptoms
+from app.ml.rfcdisease import predict_top3, valid_symptoms
 from app.ml.first_aid_handler import get_first_aid
 from app.ml.health_metrics import get_assessment_for_api
 
